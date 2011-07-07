@@ -6,6 +6,11 @@ Installs iTerm2 in /Applications.
 Changes
 =======
 
+## v1.1.0:
+
+* Install iTerm 2 v1.0.0.
+* Cookbook Incompatibility: resource names and paths changed based on upstream.
+
 ## v1.0.3:
 
 * Update version to 1.0.3
@@ -35,7 +40,7 @@ By default, this cookbook will install the iTerm2 application to /Applications, 
 License and Author
 ==================
 
-Author:: Joshua Timberman (<joshua@housepub.org>)
+Author:: Joshua Timberman (<cookbooks@housepub.org>)
 
 Copyright 2011, Joshua Timberman
 

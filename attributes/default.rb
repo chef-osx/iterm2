@@ -1,2 +1,2 @@
-default['iterm2']['version'] = "beta1"
-default['iterm2']['checksum'] = "097aebf098c702ff2ce013a51613d1f66e9048505c311e648fb0b40ad5eeec58"
+default['iterm2']['version'] = "v1_0_0"
+default['iterm2']['checksum'] = "2afad022b1e1f08b3ed40f0c2bde7bf7cce003852c83f85948c7f57a5578d9c5"
