@@ -2,7 +2,7 @@
 # Cookbook Name:: iterm2
 # Recipe:: default
 #
-# Copyright 2011, Joshua Timberman
+# Copyright 2011-2012, Joshua Timberman
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,19 +18,18 @@
 #
 
 unless ::File.directory?("/Applications/iTerm.app")
-  remote_file "#{Chef::Config[:file_cache_path]}/iTerm2_#{node['iterm2']['version']}.zip" do
-    source "http://iterm2.googlecode.com/files/iTerm2_#{node['iterm2']['version']}.zip"
+  remote_file "#{Chef::Config[:file_cache_path]}/iTerm2#{node['iterm2']['version']}.zip" do
+    source "http://iterm2.googlecode.com/files/iTerm2#{node['iterm2']['version']}.zip"
     checksum node['iterm2']['checksum']
   end
 
   execute "untar iTerm2" do
-    command "unzip #{Chef::Config[:file_cache_path]}/iTerm2_#{node['iterm2']['version']}.zip"
+    command "unzip #{Chef::Config[:file_cache_path]}/iTerm2#{node['iterm2']['version']}.zip"
     cwd "/Applications"
     not_if { File.directory?("/Applications/iTerm.app") }
   end
 end
 
-cookbook_file "#{ENV['HOME']}/Library/Preferences/com.googlecode.iterm2.plist" do
-  source "com.googlecode.iterm2.plist"
-  ignore_failure true
-end
+mac_os_x_plist_file "com.googlecode.iterm2.plist"
+
+include_recipe "iterm2::tmux" if node['iterm2']['tmux_enabled']
