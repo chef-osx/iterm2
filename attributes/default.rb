@@ -16,12 +16,12 @@
 # limitations under the License.
 #
 
-default['iterm2']['version']  = "-1_0_0_20120123"
-default['iterm2']['checksum'] = "1c9ce81fc60c329dee0755d9b5dc7888ea96d1642d244ede2ce6bca3cabd6920"
+default['iterm2']['version']  = "-1_0_0_20120203"
+default['iterm2']['checksum'] = "30febc426de2db2ea14f46723f5365ae3ad6ab23c877a1b016cd42e29199fe02"
 
 # Support for iTerm2's tmux integration
 default['iterm2']['tmux_enabled']  = false
 default['iterm2']['tmux_compile']  = false
-default['iterm2']['tmux_version']  = "20120108"
-default['iterm2']['tmux_checksum'] = "b97b9426959f18c60225c56ec1400fe48b500c422cef15e154b7ea61c2191cc0"
-default['iterm2']['tmux_compiled_checksum'] = "d238e2b03bcfa9c6c6b6d294344eea9ec0dd938f2c915165391a2c3f6909d352"
+default['iterm2']['tmux_version']  = "20120203"
+default['iterm2']['tmux_checksum'] = "261570af86c639f4a0d665a8c96a5fd78abdd227554dae93a46331ff80c6eda7"
+default['iterm2']['tmux_compiled_checksum'] = "679719f2b6b35b95875d656f44d9d6f9ca15515f24eea051f0b96e20e2d89509"
