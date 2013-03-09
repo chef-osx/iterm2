@@ -1,3 +1,10 @@
+## v1.3.0:
+
+* Install iTerm 2 v1.0.0 20130302
+* Fixes issue #2, plist file not available (ignore failure, allow
+  alternative cookbook via attribute)
+* Refactored the tmux recipe to better handle upgrades
+
 ## v1.2.0:
 
 * Install iTerm 2 v1.0.0 20120123 (tmux support)
