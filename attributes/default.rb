@@ -25,3 +25,7 @@ default['iterm2']['tmux_compile']  = false
 default['iterm2']['tmux_version']  = "20130302"
 default['iterm2']['tmux_checksum'] = "13daa6ea961af95307ad933727b84c457fad67936da8443fe1ea34cf7505fc3b"
 default['iterm2']['tmux_compiled_checksum'] = nil
+
+# Set an alternative cookbook for the iterm2.plist file.
+# Override this in a role, wrapper cookbook, etc.
+default['iterm2']['plist_cookbook'] = "iterm2"
