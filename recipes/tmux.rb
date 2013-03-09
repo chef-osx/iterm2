@@ -26,23 +26,17 @@ if node['platform_version'].to_f < 10.7
 end
 
 install_tmux_command = []
-url_precompiled = ''
-tmux_checksum = ''
+tmux_checksum = node['iterm2']['tmux_checksum']
 
 if node['iterm2']['tmux_compile']
   install_tmux_command << 'sh autogen.sh'
   install_tmux_command << './configure'
   install_tmux_command << 'make'
-  tmux_checksum = node['iterm2']['tmux_checksum']
-else
-  url_precompiled = '-precompiled'
-  tmux_checksum = node['iterm2']['tmux_compiled_checksum']
 end
 
 install_tmux_command << 'make install'
-tmux_url = "http://iterm2.googlecode.com/files/tmux-for-iTerm2-#{node['iterm2']['tmux_version']}#{url_precompiled}.tar.gz"
-tmux_tar = "tmux-for-iTerm2-#{node['iterm2']['tmux_version']}#{url_precompiled}.tar.gz"
-
+tmux_tar = "tmux-for-iTerm2-#{node['iterm2']['tmux_version']}.tar.gz"
+tmux_url = "http://iterm2.googlecode.com/files/#{tmux_tar}"
 
 package "tmux" do
   action :remove
@@ -55,24 +49,27 @@ end
 remote_file "#{Chef::Config[:file_cache_path]}/#{tmux_tar}" do
   source tmux_url
   checksum tmux_checksum
+  notifies :delete, "file[#{Chef::Config[:file_cache_path]}/.tmux-for-iTerm2-installed]", :immediately
 end
 
-unless ::File.exists?("#{Chef::Config[:file_cache_path]}/.tmux-for-iTerm2-installed")
-
-  execute "autoconf directory to brew" do
-    command "echo $(brew --prefix)/share/aclocal | sudo tee -a /usr/share/aclocal/dirlist"
-    not_if "grep -qx $(brew --prefix)/share/aclocal /usr/share/aclocal/dirlist"
-  end
-
-  execute "untar tmux-for-iTerm2" do
-    command "tar -zxf #{tmux_tar}"
-    cwd Chef::Config[:file_cache_path]
-  end
-
-  execute "install tmux-for-iTerm2" do
-    command install_tmux_command.join(" && ")
-    cwd "#{Chef::Config[:file_cache_path]}/tmux-for-iTerm2-#{node['iterm2']['tmux_version']}"
-  end
-
-  file "#{Chef::Config[:file_cache_path]}/.tmux-for-iTerm2-installed"
+# This is done using sudo rather than Chef::Util::FileEdit because
+# Chef is not necessarily running as root.
+execute "autoconf directory to brew" do
+  command "echo $(brew --prefix)/share/aclocal | sudo tee -a /usr/share/aclocal/dirlist"
+  not_if "grep -qx $(brew --prefix)/share/aclocal /usr/share/aclocal/dirlist"
 end
+
+execute "untar tmux-for-iTerm2" do
+  command "tar -zxf #{tmux_tar}"
+  cwd Chef::Config[:file_cache_path]
+  not_if { ::File.exists?("#{Chef::Config[:file_cache_path]}/.tmux-for-iTerm2-installed") }
+  notifies :run, "execute[install tmux-for-iTerm2]", :immediately
+end
+
+execute "install tmux-for-iTerm2" do
+  command install_tmux_command.join(" && ")
+  cwd "#{Chef::Config[:file_cache_path]}/tmux-for-iTerm2-#{node['iterm2']['tmux_version']}"
+  action :nothing
+end
+
+file "#{Chef::Config[:file_cache_path]}/.tmux-for-iTerm2-installed"
