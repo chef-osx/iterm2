@@ -68,7 +68,7 @@ end
 
 execute "install tmux-for-iTerm2" do
   command install_tmux_command.join(" && ")
-  cwd "#{Chef::Config[:file_cache_path]}/tmux-for-iTerm2-#{node['iterm2']['tmux_version']}"
+  cwd "#{Chef::Config[:file_cache_path]}/tmux"
   action :nothing
 end
 
