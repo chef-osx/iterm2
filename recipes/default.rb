@@ -19,7 +19,7 @@
 
 unless ::File.directory?("/Applications/iTerm.app")
   remote_file "#{Chef::Config[:file_cache_path]}/iTerm2#{node['iterm2']['version']}.zip" do
-    source "http://iterm2.googlecode.com/files/iTerm2#{node['iterm2']['version']}.zip"
+    source "http://www.iterm2.com/downloads/#{node['iterm2']['beta_or_stable']}/iTerm2#{node['iterm2']['version']}.zip"
     checksum node['iterm2']['checksum']
   end
 
