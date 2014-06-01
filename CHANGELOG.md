@@ -1,6 +1,12 @@
 iterm2 Cookbook
 ===============
 
+v1.3.2 (2014-05-31)
+-------------------
+
+- Update to new version of iTerm2. Move download locations.
+
+
 v1.3.0 (2013-03-09)
 -------------------
 
