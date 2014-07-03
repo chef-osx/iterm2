@@ -16,9 +16,9 @@
 # limitations under the License.
 #
 
-default['iterm2']['version']  = "-1_0_0_20140518"
+default['iterm2']['version']  = "-1_0_0_20140629"
 default['iterm2']['beta_or_stable'] = "beta"
-default['iterm2']['checksum'] = "e10a1c859714f5449a0314629b24594205324bc80faad219c1f312872f64daa1"
+default['iterm2']['checksum'] = "fdda227b01497c90f7c35ad9bde73ee477bb452f27acef9abbf97dc42fdf3bb5"
 
 # Support for iTerm2's tmux integration
 default['iterm2']['tmux_enabled']  = false
