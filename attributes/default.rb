@@ -18,7 +18,7 @@
 
 default['iterm2']['version']  = "-2_0_0_20141103"
 default['iterm2']['beta_or_stable'] = "beta"
-default['iterm2']['checksum'] = "d9f3dd198febf46c272a8d4b473e35cae4cdfbf1963a7796114df53b5cb06c63"
+default['iterm2']['checksum'] = "fdda227b01497c90f7c35ad9bde73ee477bb452f27acef9abbf97dc42fdf3bb5"
 
 # Support for iTerm2's tmux integration
 default['iterm2']['tmux_enabled']  = false
