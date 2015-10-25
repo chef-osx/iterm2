@@ -13,11 +13,11 @@ Requirements
 
 ## Cookbooks
 
-* [mac_os_x](http://community.opscode.com/cookbooks/mac_os_x)
+* [mac_os_x](http://supermarket.chef.io/cookbooks/mac_os_x)
 
 Added as a dependency in 1.2.0:
 
-* [homebrew](http://community.opscode.com/cookbooks/homebrew)
+* [homebrew](http://supermarket.chef.io/cookbooks/homebrew)
 
 Attributes
 ==========
@@ -36,7 +36,7 @@ to have your preferences managed by Chef on all your machines :).
 The latest versions of iTerm 2 have integrated support for the
 terminal multiplexer,
 [tmux](http://code.google.com/p/iterm2/wiki/TmuxIntegration). As of
-version 1.2.0, this cookobook supports installing the custom tmux
+version 1.2.0, this cookbook supports installing the custom tmux
 required to use this integration. By default, this is not enabled via
 the attribute `node['iterm2']['tmux_enabled']` (false). To enable the
 integrated tmux support in iTerm2, set that attribute to true through
