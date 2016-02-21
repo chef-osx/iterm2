@@ -16,16 +16,9 @@
 # limitations under the License.
 #
 
-default['iterm2']['version']  = "-2_0_0_20141103"
+default['iterm2']['version']  = "2_9_20160206"
 default['iterm2']['beta_or_stable'] = "beta"
-default['iterm2']['checksum'] = "c2f4e725f7e519d5284fc3787ede77acf7217ae424b3d62234bb1054c78dab69"
-
-# Support for iTerm2's tmux integration
-default['iterm2']['tmux_enabled']  = false
-default['iterm2']['tmux_compile']  = false
-default['iterm2']['tmux_version']  = "20130302"
-default['iterm2']['tmux_checksum'] = "13daa6ea961af95307ad933727b84c457fad67936da8443fe1ea34cf7505fc3b"
-default['iterm2']['tmux_compiled_checksum'] = nil
+default['iterm2']['checksum'] = "b9c680b089bad6829246019e1ebb24017992fbbbd89d58b13f0ac6d9816ff5a5"
 
 # Set an alternative cookbook for the iterm2.plist file.
 # Override this in a role, wrapper cookbook, etc.
