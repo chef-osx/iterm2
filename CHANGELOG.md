@@ -1,6 +1,11 @@
 iterm2 Cookbook
 ===============
 
+v1.5.0 (2017-03-31)
+-------------------
+- Update to iTerm2 3.1 beta (and 3.0 for stable)
+- Removed homebrew cookbook from dependencies
+
 v1.4.0 (2016-02-21)
 -------------------
 - Update to iTerm2 2.9 beta

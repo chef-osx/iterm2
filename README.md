@@ -15,10 +15,6 @@ Requirements
 
 * [mac_os_x](http://supermarket.chef.io/cookbooks/mac_os_x)
 
-Added as a dependency in 1.2.0:
-
-* [homebrew](http://supermarket.chef.io/cookbooks/homebrew)
-
 Attributes
 ==========
 
