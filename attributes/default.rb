@@ -16,10 +16,16 @@
 # limitations under the License.
 #
 
-default['iterm2']['version']  = "2_9_20160206"
-default['iterm2']['beta_or_stable'] = "beta"
-default['iterm2']['checksum'] = "b9c680b089bad6829246019e1ebb24017992fbbbd89d58b13f0ac6d9816ff5a5"
+default['iterm2']['beta_or_stable'] = 'beta'
+
+if node['iterm2']['beta_or_stable'] == 'stable'
+  default['iterm2']['version']  = '3_0_15'
+  default['iterm2']['checksum'] = '90e6f2bd3eb2d245f4ab2c9f856c627c8a1536bac024fb3989db417bc3147565'
+else
+  default['iterm2']['version']  = '3_1_beta_4'
+  default['iterm2']['checksum'] = '266745852d529cfbfdb17b839cdca03c09a8b420b2b8865a022d37830e0e89a0'
+end
 
 # Set an alternative cookbook for the iterm2.plist file.
 # Override this in a role, wrapper cookbook, etc.
-default['iterm2']['plist_cookbook'] = "iterm2"
+default['iterm2']['plist_cookbook'] = 'iterm2'
